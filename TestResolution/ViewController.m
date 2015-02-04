@@ -10,6 +10,8 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *boundsLabel;
+
 @end
 
 @implementation ViewController
@@ -17,6 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.boundsLabel.text = NSStringFromCGRect(self.view.bounds);
 }
 
 - (void)didReceiveMemoryWarning {
